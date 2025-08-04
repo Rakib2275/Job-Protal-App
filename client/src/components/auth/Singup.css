@@ -1,0 +1,36 @@
+.signup{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80rem; /* 7xl = 1280px = 80rem */
+  margin-left: auto;
+  margin-right: auto;
+}
+.signupFrom{
+    width: 50%;
+  border: 1px solid #e5e7eb;     
+  padding: 1rem;                 
+  margin-bottom: 2.5rem; 
+}
+.header{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+.input{
+    height: 1.5rem;
+    border-radius: 0.3rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+.student{
+    display: flex;           
+    align-items: center;    
+    gap: 0.5rem;
+}
+.recruiter{
+    display: flex;
+    gap: 1rem;
+}
