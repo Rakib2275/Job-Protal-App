@@ -1,0 +1,21 @@
+.container{
+  max-width: 1280px;  /* same as Tailwind's max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.cards{
+    display: flex;
+    gap: 20px;
+}
+.card{
+  flex: 1 1 0%;
+  height: 88vh;
+  overflow-y: auto;
+  padding-bottom: 20px;  
+}
+.cardBody{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}

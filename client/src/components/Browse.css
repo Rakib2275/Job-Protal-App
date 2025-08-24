@@ -1,0 +1,13 @@
+.Browse{
+  max-width: 1280px; /* equivalent of max-w-7xl */
+  margin-left: auto;  /* centers horizontally */
+  margin-right: auto; /* centers horizontally */
+  margin-top: 2.5rem; /* equivalent of my-10 */
+  margin-bottom: 2.5rem; 
+}
+.browseJob{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 1rem;
+  margin-top: 1.25rem;
+}

@@ -1,0 +1,30 @@
+.carousel{
+  width: 100%;                /* w-full */
+  max-width: 36rem;           /* max-w-xl (36rem = 576px) */
+  margin-left: auto;          /* mx-auto */
+  margin-right: auto;         /* mx-auto */
+  margin-top: 5rem;           /* my-20 = 5rem (80px) */
+  margin-bottom: 5rem; 
+}
+
+.item{
+   flex-basis: 100%; 
+   margin-left: 2rem;
+}
+.button{
+    color: black;
+    border-radius: 1rem;
+    
+}
+
+@media (min-width: 768px){
+    .item{
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 768px){
+    .item{
+        flex-basis: 33.33%;
+    }
+}

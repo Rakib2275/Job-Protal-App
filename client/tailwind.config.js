@@ -1,7 +1,8 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+// tailwind.config.js
+export default {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // for React
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",   // React এর সব ফাইল দেখাবে
   ],
   theme: {
     extend: {},

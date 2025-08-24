@@ -1,0 +1,26 @@
+.footer {        
+  background: #1f2937;      
+  color: #f9fafb;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.footer-text {
+  margin: 0;
+}
+
+.social-links a {
+  color: #d1d5db;
+  margin-left: 15px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #3b82f6;
+  transform: scale(1.2);
+}

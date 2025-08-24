@@ -3,15 +3,18 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
+import getDataUri from "../utils/detauri.js";
 
 // Register
 export const register = async (req, res) => {
     try {
         const { fullname, email, phonenumber, password, role } = req.body;
-        // console.log(fullname);
         if (!fullname || !email || !phonenumber || !password || !role) {
             return res.status(400).json({ message: "All fields are required", success: false });
         }
+        // const file = req.file;
+        // const fileUri = getDataUri(file);
+        // const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
 
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -25,7 +28,10 @@ export const register = async (req, res) => {
             email,
             phonenumber,
             password: hashedPassword,
-            role
+            role,
+            // profile:{
+            //     profilePhoto:cloudResponse.secure_url,
+            // }
         });
 
         return res.status(201).json({
@@ -100,51 +106,118 @@ export const logout = async (req, res) => {
 
 // Update Profile
 export const updateProfile = async (req, res) => {
-    try {
-        const { fullname, email, phonenumber, bio, skills } = req.body;
-        const file = req.file;
+  try {
+    const { fullname, email, phonenumber, bio, skills } = req.body;
+    const file = req.file;
 
-        // if (!fullname || !email || !phonenumber || !bio || !skills) {
-        //     return res.status(400).json({ message: "All fields are required", success: false });
-        // }
-        let skillsArray;
-        if(skills){
-            const skillsArray = skills.split(",").map((skill) => skill.trim());
-        }
-
-        const userId = req.id;
-        let user = await User.findById(userId);
-
-        if (!user) {
-            return res.status(404).json({ message: "User not found", success: false });
-        }
-
-        const emailUser = await User.findOne({ email });
-        if (emailUser && emailUser._id.toString() !== userId) {
-            return res.status(400).json({ message: "Email already in use", success: false });
-        }
-        //updating data
-        if(fullname) user.fullname = fullname
-        if(email) user.email = email
-        if(phonenumber) user.phonenumber = phonenumber
-        if(bio) user.profile.bio = bio
-        if(skills) user.profile.skills = skillsArray
-        
-        if (file) {
-            const uploaded = await cloudinary.uploader.upload(file.path, { folder: "profiles" });
-            user.profile.avatar = uploaded.secure_url;
-            fs.unlinkSync(file.path);
-        }
-
-        await user.save();
-
-        return res.status(200).json({
-            message: "Profile updated",
-            user,
-            success: true
-        });
-    } catch (error) {
-        console.error(error);
-        return res.status(500).json({ message: "Server error", success: false });
+    let skillsArray;
+    if (skills) {
+      skillsArray = skills.split(",").map((skill) => skill.trim());
     }
+
+    const userId = req.id;
+    let user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found", success: false });
+    }
+
+    // check if email is taken by someone else
+    if (email) {
+      const emailUser = await User.findOne({ email });
+      if (emailUser && emailUser._id.toString() !== userId) {
+        return res.status(400).json({ message: "Email already in use", success: false });
+      }
+    }
+
+    // update fields
+    if (fullname) user.fullname = fullname;
+    if (email) user.email = email;
+    if (phonenumber) user.phonenumber = phonenumber;
+    if (bio) user.profile.bio = bio;
+    if (skillsArray) user.profile.skills = skillsArray;
+
+    // avatar upload
+    if (file) {
+      const uploaded = await cloudinary.uploader.upload(file.path, { folder: "profiles" });
+      user.profile.avatar = uploaded.secure_url;
+      fs.unlinkSync(file.path);
+    }
+
+    await user.save();
+
+    return res.status(200).json({
+      message: "Profile updated",
+      user,
+      success: true,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Server error", success: false });
+  }
 };
+
+// export const updateProfile = async (req, res) => {
+//   try {
+//     const { fullname, email, phonenumber, bio, skills } = req.body;
+//     console.log(fullname,email,phonenumber,skills,bio)
+//     const file = req.file;
+
+//     const fileUri = getDataUri(file);
+//     const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+
+
+//     let skillsArray;
+//     if (skills) {
+//       skillsArray = skills.split(",");
+//     }
+
+//     const userId = req.id;
+//     let user = await User.findById(userId);
+
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found", success: false });
+//     }
+
+//     // check if email is taken by someone else
+//     // if (email) {
+//     //   const emailUser = await User.findOne({ email });
+//     //   if (emailUser && emailUser._id.toString() !== userId) {
+//     //     return res.status(400).json({ message: "Email already in use", success: false });
+//     //   }
+//     // }
+
+//     // update fields
+//     if (fullname) user.fullname = fullname;
+//     if (email) user.email = email;
+//     if (phonenumber) user.phonenumber = phonenumber;
+//     if (bio) user.profile.bio = bio;
+//     if (skillsArray) user.profile.skills = skillsArray;
+
+//     if(cloudResponse){
+//         user.profile.resume = cloudResponse.secure_url
+//         user.profile.resume.OriginalName = file.originalname
+//     }
+
+//     await user.save();
+
+//     user = {
+//         _id:user._id,
+//         fullname:user.fullname,
+//         email:user.email,
+//         phonenumber:user.phonenumber,
+//         role:user.role,
+//         profile:user.profile
+//     }
+
+//     return res.status(200).json({
+//       message: "Profile updated",
+//       user,
+//       success: true,
+//     });
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ message: "Server error", success: false });
+//   }
+// };
+

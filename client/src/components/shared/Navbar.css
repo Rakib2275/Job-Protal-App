@@ -5,7 +5,7 @@
    margin:5rem;
    margin-top: 0rem;
 }
-.nav-manu{
+.nav-manu {
   display: flex;
   justify-content: flex-end;
   list-style: none;
@@ -14,10 +14,22 @@
   gap: 24px;
   font-size: 1.2rem;
 }
-.nav-menu li {
+
+.nav-manu li {
   cursor: pointer;
+}
+
+.nav-manu li a {
+  text-decoration: none; 
+  color: inherit;   
   transition: color 0.3s ease;
 }
+
+.nav-manu li a:hover {
+  color: #f83002;
+  
+}
+
 
 .nav{
   display: flex;
@@ -62,9 +74,23 @@
   color: whitesmoke;
   border: none;
 }
-.login{
+.loginBotton{
   gap: 0.5rem;
   margin-right: 0.8rem;
   color: black;
   border: none;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+}
+.signupBotton{
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+.signupBotton:hover{
+  background-color: darkgrey;
+  color: black;
 }
