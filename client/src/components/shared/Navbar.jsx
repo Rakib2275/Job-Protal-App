@@ -39,9 +39,20 @@ function Navbar() {
         </div>
         <div className='nav'>
             <ul className='nav-manu'>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/jobs">Jobs</Link></li>
-                <li><Link to="/browse">Browser</Link></li>
+              {
+                user && user.role == 'recruiter' ? (
+                  <>
+                    <li><Link to="/admin/companies">Companies</Link></li>
+                    <li><Link to="/admin/jobs">Jobs</Link></li>
+                  </>
+                ):(
+                  <>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/jobs">Jobs</Link></li>
+                    <li><Link to="/browse">Browser</Link></li>
+                  </>
+                )
+              }
             </ul>
             {
               !user ? (
@@ -68,10 +79,14 @@ function Navbar() {
                     </div>
 
                     <div className='flex flex-col text-gray-600 button'>
-                        <div className="flex w-fit items-center gap-2 cursor-pointer">
+                      {
+                        user && user.role == 'student' && (
+                          <div className="flex w-fit items-center gap-2 cursor-pointer">
                           <User2/>
                           <Button variant="link"><Link to="/profile">View Profile</Link></Button>
-                        </div>
+                          </div>
+                        )
+                      }
                         <div className="flex w-fit items-center gap-2 cursor-pointer">
                           <LogOut/>
                           <Button onClick={logoutHandler} variant="link">Log Out</Button>
