@@ -1,0 +1,36 @@
+.setup{
+   max-width: 36rem; /* Tailwind xl = 36rem = 576px */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5rem;  /* Tailwind 10 = 2.5rem */
+  margin-bottom: 2.5rem; 
+}
+.buttons{
+   display: flex;
+  align-items: center;
+  gap: 0.5rem;          /* Tailwind gap-2 = 0.5rem */
+  color: #6B7280;       /* Tailwind text-gray-500 */
+  font-weight: 600; 
+}
+.company{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding:2rem ;
+}
+.nameInput{
+    display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  gap: 1rem;
+}
+.update{
+    width: 100%;
+  margin-top: 2rem;
+  height: 1.6rem;
+  background-color: greenyellow;
+  transition: all 0.4s;
+}
+.update:hover{
+    background-color: green;
+    color: white;
+}
