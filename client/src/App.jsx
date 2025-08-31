@@ -10,6 +10,7 @@ import JobDescription from './components/JobDescription'
 import Companies from './components/Admin/Companies'
 import CreateCompany from './components/Admin/CreateCompany'
 import CompanySetup from './components/Admin/CompanySetup'
+import { Suspense } from 'react'
 
 const appRouter = createBrowserRouter([
   {

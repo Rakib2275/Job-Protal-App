@@ -1,23 +1,23 @@
 .title{
-  font-weight: 800;    /* bold */
-  font-size: 1.5rem;  /* extra-large text, 20px */
+  font-weight: 800;  
+  font-size: 1.5rem; 
   line-height: 1.75rem;
   margin-bottom: 1.25rem;
 }
 .position1{
-    color: #1d4ed8;   /* Tailwind blue-700 */
+    color: #1d4ed8;
     font-weight: 700;
     border-radius: 0.5rem;
     padding: 0.3rem;
 }
 .position2{
-    color: #ec4d4d;   /* Tailwind blue-700 */
+    color: #ec4d4d;
     font-weight: 700;
     border-radius: 0.5rem;
     padding: 0.3rem;
 }
 .position3{
-    color: #bc4dec;   /* Tailwind blue-700 */
+    color: #bc4dec; 
     font-weight: 700;
     border-radius: 0.5rem;
     padding: 0.3rem;
@@ -29,20 +29,19 @@
     margin-top: 4px;
 }
 .desc{
-  max-width: 1280px; /* max-w-7xl */
-  margin-left: auto;  /* mx-auto */
-  margin-right: auto; /* mx-auto */
-  margin-top: 2.5rem; /* my-10 */
+  max-width: 1280px;
+  margin-left: auto; 
+  margin-right: auto;
+  margin-top: 2.5rem; 
   margin-bottom: 2.5rem; 
 }
 .descBody{
-   display: flex;           /* flex */
-  align-items: center;     /* items-center */
+   display: flex;          
+  align-items: center;  
   justify-content: space-between; 
 }
 .isApplied{
-    background-color: #4B5563; /* Tailwind gray-600 */
-    cursor: not-allowed;
+    background-color: #4B5563; 
     padding: 0.4rem;
     border-radius: 0.5rem;
     color: white;
@@ -58,21 +57,21 @@
    background-color: #5f32ad; 
 }
 .jobDesc{
-  border-bottom-width: 2px;   /* border-b-2 */
-  border-bottom-color: #d1d5db; /* border-b-gray-300 */
+  border-bottom-width: 2px;  
+  border-bottom-color: #d1d5db;
   border-bottom-style: solid;
-  font-weight: 500;          /* font-medium */
-  padding-top: 1rem;         /* py-4 (16px top & bottom) */
+  font-weight: 500;         
+  padding-top: 1rem;       
   padding-bottom: 1rem;
 }
 .role{
-  font-weight: 700;     /* font-bold */
-  margin-top: 0.25rem;  /* my-1 → 4px top */
+  font-weight: 700;  
+  margin-top: 0.25rem; 
   margin-bottom: 0.25rem;
 }
 .fronted{
-  padding-left: 1rem;   /* pl-4 → 16px */
-  font-weight: 400;     /* font-normal */
+  padding-left: 1rem;
+  font-weight: 400;  
   color: #1f2937;
 }
 .info{

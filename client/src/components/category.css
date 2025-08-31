@@ -1,9 +1,9 @@
 .carousel{
-  width: 100%;                /* w-full */
-  max-width: 36rem;           /* max-w-xl (36rem = 576px) */
-  margin-left: auto;          /* mx-auto */
-  margin-right: auto;         /* mx-auto */
-  margin-top: 5rem;           /* my-20 = 5rem (80px) */
+  width: 100%;               
+  max-width: 36rem;           
+  margin-left: auto;          
+  margin-right: auto;         
+  margin-top: 5rem;           
   margin-bottom: 5rem; 
 }
 

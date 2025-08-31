@@ -1,8 +1,8 @@
 .companies{
-  max-width: 72rem;   /* 1152px */
-  margin-left: auto;  /* center horizontally */
+  max-width: 72rem; 
+  margin-left: auto;
   margin-right: auto;
-  margin-top: 2.5rem; /* 40px */
+  margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
 .w-fit {
@@ -29,4 +29,7 @@
     width: fit-content;
     cursor: pointer;
     padding: 0.5rem;
+}
+.caption{
+  margin-top: 3rem;
 }

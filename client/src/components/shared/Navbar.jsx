@@ -30,7 +30,7 @@ function Navbar() {
     }
   }
   return (
-    <div className='bg-white'>
+    <div className='AllNavbar'>
       <div className='Navbar'>
         <div>
           <h1 className='text-2xl font-bold'>
@@ -78,18 +78,18 @@ function Navbar() {
                         </div>
                     </div>
 
-                    <div className='flex flex-col text-gray-600 button'>
+                    <div className='flex flex-col buttonss'>
                       {
                         user && user.role == 'student' && (
                           <div className="flex w-fit items-center gap-2 cursor-pointer">
-                          <User2/>
+                          <User2 className='user' />
                           <Button variant="link"><Link to="/profile">View Profile</Link></Button>
                           </div>
                         )
                       }
                         <div className="flex w-fit items-center gap-2 cursor-pointer">
-                          <LogOut/>
-                          <Button onClick={logoutHandler} variant="link">Log Out</Button>
+                          <LogOut className='user' />
+                          <Button onClick={logoutHandler} variant="link" className={'logout'}>Log Out</Button>
                         </div>
                     </div>
                 </PopoverContent>

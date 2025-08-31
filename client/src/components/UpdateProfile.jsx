@@ -20,8 +20,7 @@ const UpdateProfile = ({ open, setOpen }) => {
     email: user?.email || "",
     phonenumber: user?.phonenumber || "",
     bio: user?.profile?.bio || "",
-    skills: user?.profile?.skills?.join(", ") || "", // use string for input
-    file: null
+    skills: user?.profile?.skills?.join(", ") || "", 
   });
 
   const dispatch = useDispatch();
@@ -76,14 +75,14 @@ const UpdateProfile = ({ open, setOpen }) => {
   return (
     <div>
       <Dialog open={open}>
-        <DialogContent className={'update'} onInteractOutside={() => setOpen(false)}>
+        <DialogContent className={'updates'} onInteractOutside={() => setOpen(false)}>
           <DialogHeader>
             <DialogTitle>Update Profile</DialogTitle>
             <DialogDescription>Fill the form to update your profile information</DialogDescription>
           </DialogHeader>
-          <form className="form1" onSubmit={submitHandler}>
-            <div className='form'>
-              <div className='fromData'>
+          <form className="form1s" onSubmit={submitHandler}>
+            <div className='forms'>
+              <div className='fromDatas'>
                 <Label htmlFor="fullname" className={"label"}>Name</Label>
                 <Input id="fullname" name="fullname" type='text' value={input.fullname} onChange={changeEventHandler} className={'name'} />
               </div>
@@ -97,7 +96,7 @@ const UpdateProfile = ({ open, setOpen }) => {
               </div>
               <div className='fromData'>
                 <Label htmlFor="bio" className={"label"}>Bio</Label>
-                <Input id="bio" name="bio" value={input.bio} onChange={changeEventHandler} className={'name'} />
+                <Input id="bio" name="bio" value={input.description} onChange={changeEventHandler} className={'name'} />
               </div>
               <div className='fromData'>
                 <Label htmlFor="skills" className={"label"}>Skills (comma separated)</Label>

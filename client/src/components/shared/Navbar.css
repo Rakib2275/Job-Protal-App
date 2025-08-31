@@ -1,9 +1,13 @@
+.AllNavbar{
+  background-color:darkgray;
+}
 .Navbar{
    display: flex;
    justify-content: space-between;
    align-items: center;
    margin:5rem;
    margin-top: 0rem;
+ 
 }
 .nav-manu {
   display: flex;
@@ -45,15 +49,15 @@
   height: 2.5rem;
   width: 2.5rem;
   object-fit: cover;
-  border-radius: 9999px; /* optional: makes it circular */
+  border-radius: 9999px;
 }
 .popover-content {
   width: 14rem;
   background-color: white;
   padding: 1rem;
   border: none;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* X Y Blur Color */
-  border-radius: 0.5rem; /* optional: smooth corners */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
 }
 
 .avaterclick{
@@ -67,12 +71,18 @@
   color: #6b7280;
   margin-top: 0.2rem;
 }
-.button{
+.buttonss{
   gap:0.5rem;
   border-radius: 0.3rem;
   padding: 0.5rem;
   color: whitesmoke;
   border: none;
+}
+.logout{
+  width:5.4rem;
+}
+.user{
+  color: black;
 }
 .loginBotton{
   gap: 0.5rem;
@@ -92,5 +102,5 @@
 }
 .signupBotton:hover{
   background-color: darkgrey;
-  color: black;
+  color: white;
 }
