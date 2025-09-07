@@ -9,9 +9,8 @@ import { Label } from './ui/label'
 import AppliedJobTable from './AppliedJobTable'
 import UpdateProfile from './UpdateProfile'
 import { useSelector } from 'react-redux'
-import store from '@/redux/store'
 
-const skills = ["HTML", "CSS","JavaScript", "ReactJs"]
+// const skills = ["HTML", "CSS","JavaScript", "ReactJs"]
 const isResume = true;
 const Profile = () => {
     const [open,setOpen] = useState(false);
@@ -23,11 +22,11 @@ const Profile = () => {
         <div className='flex justify-between'>
             <div className='profileView'>
             <Avatar className={"imageButtons"}>
-                <AvatarImage src="https://www.shutterstock.com/shutterstock/photos/2174926871/display_1500/stock-vector-circle-line-simple-design-logo-blue-format-jpg-png-eps-2174926871.jpg" alt="profile" />
+                <AvatarImage src={user?.profile?.profilePhoto} alt="profile" />
             </Avatar>
             <div>
                 <h2>{user.fullname}</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, ratione impedit est libero voluptate iure!</p>
+                <p>{user?.profile?.bio}</p>
             </div>
             
         </div>
@@ -47,14 +46,14 @@ const Profile = () => {
             <h2>Skills</h2>
             <div className='skill'>
                 {
-                    skills.length !== 0 ? skills.map((item,index) => <Badge key={index} className={"indiskill"}>{item}</Badge>) : <span>NA</span>
+                    user?.profile?.skills.length !== 0 ? user?.profile?.skills.map((item,index) => <Badge key={index} className={"indiskill"}>{item}</Badge>) : <span>NA</span>
                 }
             </div>
         </div>
         <div className='resumes'>
             <Label className={"resume"}>Resume</Label>
             {
-                isResume ? <a target='blank' href={user?.profile?.resume} className='link'>Rakibul Hasan</a> : <span>NA</span>
+                isResume ? <a target='blank' href={user?.profile?.resume} className='link'>{user?.profile?.resumeOriginalName}</a> : <span>NA</span>
             }
         </div>
       </div>

@@ -1,0 +1,30 @@
+.component{
+    background-color:beige;
+    border-radius: 4rem;
+    height: auto;
+    max-width: 1200px;
+    margin: auto;
+    padding: 5rem;
+}
+.div{
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    margin: 1rem;
+}
+.image1{
+    height: 5rem;
+    border-radius: 10%;
+    margin-left: 1rem;
+}
+.perag{
+    margin-left: 2rem;
+}
+@media (max-width: 768px) {
+  .component {
+    width: 100%;      /* full width */
+    margin-left: 0;   /* remove left margin */
+    margin-right: 0;  /* remove right margin */
+    padding: 2rem;    /* optional: reduce padding for small screens */
+  }
+}

@@ -10,11 +10,12 @@
 .item{
    flex-basis: 100%; 
    margin-left: 2rem;
+   
 }
 .button{
     color: black;
     border-radius: 1rem;
-    
+
 }
 
 @media (min-width: 768px){

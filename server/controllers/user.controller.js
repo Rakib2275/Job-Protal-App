@@ -12,9 +12,9 @@ export const register = async (req, res) => {
         if (!fullname || !email || !phonenumber || !password || !role) {
             return res.status(400).json({ message: "All fields are required", success: false });
         }
-        // const file = req.file;
-        // const fileUri = getDataUri(file);
-        // const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+        const file = req.file;
+        const fileUri = getDataUri(file);
+        const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
 
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -29,9 +29,9 @@ export const register = async (req, res) => {
             phonenumber,
             password: hashedPassword,
             role,
-            // profile:{
-            //     profilePhoto:cloudResponse.secure_url,
-            // }
+            profile:{
+                profilePhoto:cloudResponse.secure_url,
+            }
         });
 
         return res.status(201).json({
@@ -110,6 +110,10 @@ export const updateProfile = async (req, res) => {
     const { fullname, email, phonenumber, bio, skills } = req.body;
     const file = req.file;
 
+    const fileUri= getDataUri(file);
+    const cloudResponse = await cloudinary.uploader.upload(fileUri.content)
+
+
     let skillsArray;
     if (skills) {
       skillsArray = skills.split(",").map((skill) => skill.trim());
@@ -137,12 +141,18 @@ export const updateProfile = async (req, res) => {
     if (bio) user.profile.bio = bio;
     if (skillsArray) user.profile.skills = skillsArray;
 
-    // avatar upload
-    if (file) {
-      const uploaded = await cloudinary.uploader.upload(file.path, { folder: "profiles" });
-      user.profile.avatar = uploaded.secure_url;
-      fs.unlinkSync(file.path);
+    //updating data
+    if(cloudResponse){
+        user.profile.resume = cloudResponse.secure_url
+        user.profile.resumeOriginalName = file.originalname
     }
+
+    // // avatar upload
+    // if (file) {
+    //   const uploaded = await cloudinary.uploader.upload(file.path, { folder: "profiles" });
+    //   user.profile.avatar = uploaded.secure_url;
+    //   fs.unlinkSync(file.path);
+    // }
 
     await user.save();
 

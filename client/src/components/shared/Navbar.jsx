@@ -64,17 +64,17 @@ function Navbar() {
                 <Popover>
                 <PopoverTrigger asChild>
                     <Avatar className="cursor-pointer">
-                        <AvatarImage className={'avatar'} src="https://github.com/shadcn.png" />
+                        <AvatarImage className={'avatar'} src={user?.profile?.profilePhoto} />
                     </Avatar>
                 </PopoverTrigger>
                 <PopoverContent className="w-80 popover-content">
                     <div className='avaterclick'>
                         <Avatar className="cursor-pointer">
-                            <AvatarImage className='avater' src="https://github.com/shadcn.png" />
+                            <AvatarImage className='avater' src={user?.profile?.profilePhoto} />
                         </Avatar>
                         <div className='icon'>
-                            <h3 className='font-medium'>NUB MernStack</h3>
-                            <p className='iconpera'>Lorem ipsum dolor sit</p>
+                            <h3 className='font-medium'>{user?.fullname}</h3>
+                            <p className='iconpera'>{user?.profile?.bio}</p>
                         </div>
                     </div>
 

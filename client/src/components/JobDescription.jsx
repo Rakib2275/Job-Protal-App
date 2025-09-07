@@ -75,7 +75,7 @@ const JobDescription = () => {
           <h2 className='role'>Location: <span className='fronted'>{singleJob?.location}</span></h2>
           <h2 className='role'>Description: <span className='fronted'>{singleJob?.description}</span></h2>
           <h2 className='role'>Experience: <span className='fronted'>{singleJob?.experience} year</span></h2>
-          <h2 className='role'>Salary: <span className='fronted'>{singleJob?.salary} LPA</span></h2>
+          <h2 className='role'>Salary: <span className='fronted'>{singleJob?.salary} K</span></h2>
           <h2 className='role'>Total Applicants: <span className='fronted'>{singleJob?.application?.length}</span></h2>
           <h2 className='role'>Posted Date: <span className='fronted'>{singleJob?.createdAt}</span></h2>
         </div>

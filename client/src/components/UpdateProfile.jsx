@@ -65,7 +65,7 @@ const UpdateProfile = ({ open, setOpen }) => {
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.response?.data?.message || "Something went wrong");
+      toast.error(error.response?.data?.message);
     }finally{
       setLoading(false)
     }
@@ -96,7 +96,7 @@ const UpdateProfile = ({ open, setOpen }) => {
               </div>
               <div className='fromData'>
                 <Label htmlFor="bio" className={"label"}>Bio</Label>
-                <Input id="bio" name="bio" value={input.description} onChange={changeEventHandler} className={'name'} />
+                <Input id="bio" name="bio" value={input.bio} onChange={changeEventHandler} className={'name'} />
               </div>
               <div className='fromData'>
                 <Label htmlFor="skills" className={"label"}>Skills (comma separated)</Label>

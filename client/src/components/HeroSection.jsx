@@ -7,6 +7,7 @@ const HeroSection = () => {
   return (
     <div className='text-center'>
       <div className='flex flex-col gap-5 my-10'>
+        <marquee className="banner__title" behavior="" direction="">Job Protal App</marquee>
         <span className='heading'>No. 1 Job Hunt Website</span>
         <h1>Search, Apply & <br /> Get Your <span className='text-[#6A38C2]'>Drem Jobs</span></h1>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A, facilis repudiandae. Ab ex ut quos!</p>
