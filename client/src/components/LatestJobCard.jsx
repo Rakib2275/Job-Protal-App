@@ -1,10 +1,12 @@
 import React from 'react'
 import { Badge } from './ui/badge'
 import './LatestJob.css'
+import { useNavigate } from 'react-router-dom'
 
 const LatestJobCard = ({job}) => {
+  const navigate = useNavigate();
   return (
-    <div className='JobCard'>
+    <div onClick={() => navigate(`/description/${job._id}`)} className='JobCard'>
       <div>
         <h2 className='name'>{job?.company?.name}</h2>
         <p className='pera'>Bangladesh</p>
@@ -16,7 +18,7 @@ const LatestJobCard = ({job}) => {
       <div className='positionss'>
         <Badge className={'position1'} variant="ghost">{job?.position} Positions</Badge>
         <Badge className={'position2'} variant="ghost">{job?.jobType}</Badge>
-        <Badge className={'position3'} variant="ghost">{job?.salary}LPA</Badge>
+        <Badge className={'position3'} variant="ghost">{job?.salary}K</Badge>
       </div>
     </div>
   )

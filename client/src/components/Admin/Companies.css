@@ -4,6 +4,10 @@
   margin-right: auto;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
+  background-color:lightblue;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  
 }
 .w-fit {
   width: fit-content;
@@ -21,6 +25,7 @@
 }
 .popcontent{
     width: 6rem;
+    background-color: white;
 }
 .edit{
     display: flex;
@@ -32,4 +37,9 @@
 }
 .caption{
   margin-top: 3rem;
+}
+
+.row{
+  height: 2.5rem;
+
 }

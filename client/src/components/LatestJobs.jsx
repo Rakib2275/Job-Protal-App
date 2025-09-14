@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 
 const LatestJobs = () => {
   const { allJobs } = useSelector(store => store.job);
-
   return (
     <div className='container'>
       <h1 className='headings'>

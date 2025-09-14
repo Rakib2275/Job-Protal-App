@@ -70,7 +70,7 @@ function Navbar() {
                 <PopoverContent className="w-80 popover-content">
                     <div className='avaterclick'>
                         <Avatar className="cursor-pointer">
-                            <AvatarImage className='avater' src={user?.profile?.profilePhoto} />
+                            <AvatarImage className='avater' src={user.profile.profilePhoto} />
                         </Avatar>
                         <div className='icon'>
                             <h3 className='font-medium'>{user?.fullname}</h3>

@@ -1,51 +1,87 @@
-import React from 'react'
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
-import { Avatar, AvatarImage } from '../ui/avatar'
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
-import { Edit2, MoreHorizontal } from 'lucide-react'
+import React, { useEffect, useState } from "react";
+import {
+  Table, TableBody, TableCaption, TableCell,
+  TableHead, TableHeader, TableRow
+} from "../ui/table";
+import { Avatar, AvatarImage } from "../ui/avatar";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Edit2, MoreHorizontal } from "lucide-react";
+import "./Companies.css";
+import { useSelector } from "react-redux";
 import "./Companies.css"
-import { useSelector } from 'react-redux'
+import { useNavigate } from "react-router-dom";
+
 
 const CompaniesTable = () => {
+  const { companies,searchCompanyByText} = useSelector((store) => store.company || {});
+  const [filterCompany,setFilterCompany] = useState(companies);
+  const navigate = useNavigate();
+
+  useEffect(() =>{
+    const filteredCompany = companies.length >= 0 && companies.filter((company) =>{
+      if(!searchCompanyByText){
+        return true
+      };
+      return company?.name?.toLowerCase().includes(searchCompanyByText.toLowerCase());
+    });
+    setFilterCompany(filteredCompany);
+  },[companies,searchCompanyByText])
   return (
     <div>
-      <Table >
+      <Table>
         <TableCaption>A List of your recent registered companies</TableCaption>
         <TableHeader>
-          <TableRow>
+          <TableRow className={'row'}>
             <TableHead>Logo</TableHead>
             <TableHead>Name</TableHead>
             <TableHead>Date</TableHead>
-            <TableHead className={'text-right'}>Action</TableHead>
+            <TableHead className="text-right">Action</TableHead>
           </TableRow>
         </TableHeader>
+
         <TableBody>
-         
-              <TableCell>
-              <Avatar className="imageButton">
-                <AvatarImage src="https://www.shutterstock.com/shutterstock/photos/2174926871/display_1500/stock-vector-circle-line-simple-design-logo-blue-format-jpg-png-eps-2174926871.jpg" />
-              </Avatar>
+          {filterCompany.length === 0 ? (
+            <TableRow>
+              <TableCell colSpan={4} className="text-center">
+                You haven't registered any company yet.
               </TableCell>
-                <TableCell>Company Name</TableCell>
-                <TableCell>Date</TableCell>
+            </TableRow>
+          ) : (
+            filterCompany.map((company) => (
+              <TableRow key={company._id}  className={'row'}>
+                <TableCell>
+                  <Avatar className="imageButton">
+                    <AvatarImage
+                      src={company.logo}
+                    />
+                  </Avatar>
+                </TableCell>
+                <TableCell>{company.name}</TableCell>
+                <TableCell>
+                  {company.createdAt
+                    ? new Date(company.createdAt).toLocaleDateString()
+                    : "N/A"}
+                </TableCell>
                 <TableCell className="text-right cursor-pointer">
-                <Popover>
-                  <PopoverTrigger>
-                    <MoreHorizontal />
-                  </PopoverTrigger>
+                  <Popover>
+                    <PopoverTrigger>
+                      <MoreHorizontal />
+                    </PopoverTrigger>
                     <PopoverContent className="popcontent">
-                      <div className="edit">
-                      <Edit2 />
-                      <span>Edit</span>
+                      <div onClick={()=> navigate(`/admin/companies/${company._id}`)} className="edit">
+                        <Edit2 />
+                        <span className="editbtton">Edit</span>
                       </div>
                     </PopoverContent>
-              </Popover>
-            </TableCell> 
+                  </Popover>
+                </TableCell>
+              </TableRow>
+            ))
+          )}
         </TableBody>
-
       </Table>
     </div>
-  )
-}
+  );
+};
 
-export default CompaniesTable
+export default CompaniesTable;

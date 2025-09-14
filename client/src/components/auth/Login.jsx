@@ -95,7 +95,7 @@ const Login = () => {
                   checked = {input.role == 'recruiter'}
                   onChange = {changeEventHandler}
                   className="cursor-pointer" />
-                <Label htmlFor="r2">Recruiter</Label>
+                <Label htmlFor="r2">Admin</Label>
               </div>
             </RadioGroup>
 
