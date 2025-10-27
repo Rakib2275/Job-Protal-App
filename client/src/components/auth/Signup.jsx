@@ -19,7 +19,7 @@ const Signup = () => {
   const [input,setInput] = useState({
       fullname:"",
       email:"",
-      phonenumber:"",
+      phonenumber:"", 
       password:"",
       role:"",
       file:""
@@ -47,7 +47,7 @@ const Signup = () => {
       }
       try {
         dispatch(setLoading(true));
-        const res = await axios.post(`${USER_API_END_POINT}/register`,input,{
+        const res = await axios.post(`${USER_API_END_POINT}/register`,formData,{
           headers:{
             "Content-Type":"multipart/form-data"
           },

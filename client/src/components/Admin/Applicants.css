@@ -1,0 +1,24 @@
+.main{
+    max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+}
+.status{
+  display: flex;              /* flex */
+  width: fit-content;         /* w-fit */
+  align-items: center;        /* items-center */
+  margin: 1rem;      /* my-2 → bottom margin 8px */
+  cursor: pointer;
+  background-color: white;
+}
+.w{
+  width: 6rem;
+}
+.pt{
+  padding-top: 4rem;
+}
+.threeButton{
+  float: right;
+  cursor: pointer;
+  background-color: white;
+}

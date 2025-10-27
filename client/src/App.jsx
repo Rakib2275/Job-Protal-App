@@ -12,6 +12,8 @@ import CreateCompany from './components/Admin/CreateCompany'
 import CompanySetup from './components/Admin/CompanySetup'
 import { Suspense } from 'react'
 import AdminJobs from './components/Admin/AdminJobs'
+import PostJob from './components/Admin/PostJob'
+import Applicants from './components/Admin/Applicants'
 
 const appRouter = createBrowserRouter([
   {
@@ -58,6 +60,14 @@ const appRouter = createBrowserRouter([
   {
     path:"/admin/jobs",
     element:<AdminJobs />
+  },
+  {
+    path:"/admin/jobs/create",
+    element:<PostJob />
+  },
+  {
+    path:"/admin/jobs/:id/applicants",
+    element:<Applicants />
   }
 ])
 function App() {

@@ -1,0 +1,106 @@
+.AllNavbar{
+  background-color:darkgray;
+}
+.Navbar{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin:5rem;
+   margin-top: 0rem;
+ 
+}
+.nav-manu {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 24px;
+  font-size: 1.2rem;
+}
+
+.nav-manu li {
+  cursor: pointer;
+}
+
+.nav-manu li a {
+  text-decoration: none; 
+  color: inherit;   
+  transition: color 0.3s ease;
+}
+
+.nav-manu li a:hover {
+  color: #f83002;
+  
+}
+
+
+.nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar{
+  height: 2.5rem;
+}
+.avater {
+  height: 2.5rem;
+  width: 2.5rem;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+.popover-content {
+  width: 14rem;
+  background-color: white;
+  padding: 1rem;
+  border: none;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.avaterclick{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.iconpera{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #6b7280;
+  margin-top: 0.2rem;
+}
+.buttonss{
+  gap:0.5rem;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  color: whitesmoke;
+  border: none;
+}
+.logout{
+  width:5.4rem;
+}
+.user{
+  color: black;
+}
+.loginBotton{
+  gap: 0.5rem;
+  margin-right: 0.8rem;
+  color: black;
+  border: none;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+}
+.signupBotton{
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+.signupBotton:hover{
+  background-color: darkgrey;
+  color: white;
+}

@@ -24,8 +24,9 @@
     margin-bottom: 2.5rem;
 }
 .popcontent{
-    width: 6rem;
+    min-width: 6.5rem;
     background-color: white;
+    padding: 1rem;
 }
 .edit{
     display: flex;
@@ -42,4 +43,12 @@
 .row{
   height: 2.5rem;
 
+}
+.applicant{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 0.5rem; /* 8px */
+  cursor: pointer;
+  margin-top: 0.5rem;
 }

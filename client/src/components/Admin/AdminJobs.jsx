@@ -5,12 +5,14 @@ import { Button } from '../ui/button';
 import "./Companies.css";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setSearchCompanyByText } from '@/redux/companySlice';
 import AdminJobsTable from './AdminJobsTable';
 import UseGetAllAdminJobs from '@/hooks/useGeteAllAdminJobs';
+import UseGetAllJobs from '@/hooks/UseGetAllJobs';
+import { setSearchJobByText } from '@/redux/jobSlice';
 
 
 const AdminJobs = () => {
+  UseGetAllJobs();
   const [input, setInput] = useState("");
   const [refreshTrigger, setRefreshTrigger] = useState(0); 
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ const AdminJobs = () => {
   const { loading, error } = UseGetAllAdminJobs(refreshTrigger);
 
   useEffect(() => {
-    dispatch(setSearchCompanyByText(input));
+    dispatch(setSearchJobByText(input));
   }, [input, dispatch]);
 
   // Call this after posting a job
@@ -37,8 +39,8 @@ const AdminJobs = () => {
             placeholder="Filter by name"
             onChange={(e) => setInput(e.target.value)}
           />
-          <Button className={"button"} onClick={() => navigate("/admin/companies/create")}>
-            New Company
+          <Button className="button" onClick={() => navigate("/admin/jobs/create")}>
+            New Jobs
           </Button>
         </div>
         {loading ? <p>Loading jobs...</p> : error ? <p>{error}</p> : <AdminJobsTable />}

@@ -82,7 +82,7 @@ const CompanySetup = () => {
       <div className='setup'>
         <form onSubmit={submitHandler}>
           <div className="company">
-            <Button onClick={() =>navigate("/admin/companies")} variant="outline" className={'buttons'}>
+            <Button onClick={() =>navigate("/admin/companies")} variant="outline" className={'button'}>
             <ArrowLeft />
             <span>Back</span>
           </Button>

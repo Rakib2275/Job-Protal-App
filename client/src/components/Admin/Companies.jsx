@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../shared/Navbar'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import CompaniesTable from './CompaniesTable'
@@ -8,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import useGetAllCompanies from '@/hooks/userGetAllCompanies'
 import { useDispatch } from 'react-redux'
 import { setSearchCompanyByText } from '@/redux/companySlice'
+import Navbar2 from './Navbar2'
 
 
 
@@ -22,7 +22,7 @@ const Companies = () => {
   },[input])
   return (
     <div>
-      <Navbar />
+      <Navbar2 />
       <div className='companies'>
         <div className='body'>
             <Input className="w-fit" placeholder="Filter by name" onChange = {(e) => setInput(e.target.value)} />
