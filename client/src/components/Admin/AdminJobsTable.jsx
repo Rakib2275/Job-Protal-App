@@ -10,16 +10,17 @@ import { useNavigate } from "react-router-dom";
 import "./Companies.css";
 
 const AdminJobsTable = () => {
-  const { allJobs = [], searchJobByText } = useSelector((store) => store.job || {});
+  // ✅ ঠিকভাবে destructure করা
+  const { allJobs = [], searchedQuery } = useSelector((store) => store.job || {});
   const [filterJobs, setFilterJobs] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (Array.isArray(allJobs)) {
       const filtered = allJobs.filter((job) => {
-        if (!searchJobByText) return true;
+        if (!searchedQuery) return true;
 
-        const text = searchJobByText.toLowerCase();
+        const text = searchedQuery.toLowerCase();
         const titleMatch = job?.title?.toLowerCase().includes(text);
         const companyMatch = job?.company?.name?.toLowerCase().includes(text);
 
@@ -30,7 +31,7 @@ const AdminJobsTable = () => {
     } else {
       setFilterJobs([]);
     }
-  }, [allJobs, searchJobByText]);
+  }, [allJobs, searchedQuery]);
 
   return (
     <div>
@@ -75,7 +76,12 @@ const AdminJobsTable = () => {
                         <Edit2 />
                         <span className="editbtton">Edit</span>
                       </div>
-                      <div onClick={()=>navigate(`/admin/jobs/${job._id}/applicants`)} className="applicant">
+                      <div
+                        onClick={() =>
+                          navigate(`/admin/jobs/${job._id}/applicants`)
+                        }
+                        className="applicant"
+                      >
                         <Eye className="w-4" />
                         <span>Applicants</span>
                       </div>

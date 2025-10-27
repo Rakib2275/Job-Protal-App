@@ -163,7 +163,7 @@ const PostJob = () => {
                     {
                       companies.map((company)=>{
                         return(
-                          <SelectItem value={company?.name?.toLowerCase()}>{company.name}</SelectItem>
+                          <SelectItem key={company._id} value={company?.name?.toLowerCase()}>{company.name}</SelectItem>
                         )
                       })
                     }

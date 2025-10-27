@@ -39,7 +39,7 @@ const Job = ({job}) => {
       <div className='positions'>
         <Badge className={'position1'} variant="ghost">{job?.position} Positions</Badge>
         <Badge className={'position2'} variant="ghost">{job?.jobType}</Badge>
-        <Badge className={'position3'} variant="ghost">{job?.salary}LPA</Badge>
+        <Badge className={'position3'} variant="ghost">{job?.salary}K</Badge>
       </div>
 
       <div className='Buttons'>

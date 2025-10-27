@@ -14,6 +14,7 @@ import { Suspense } from 'react'
 import AdminJobs from './components/Admin/AdminJobs'
 import PostJob from './components/Admin/PostJob'
 import Applicants from './components/Admin/Applicants'
+import Protected from './components/Admin/Protected'
 
 const appRouter = createBrowserRouter([
   {
@@ -47,7 +48,7 @@ const appRouter = createBrowserRouter([
   //admin
   {
     path:"/admin/companies",
-    element:<Companies />
+    element:<Protected><Companies /></Protected>
   },
   {
     path:"/admin/companies/create",
@@ -59,7 +60,7 @@ const appRouter = createBrowserRouter([
   },
   {
     path:"/admin/jobs",
-    element:<AdminJobs />
+    element: <Protected><AdminJobs /></Protected>
   },
   {
     path:"/admin/jobs/create",
