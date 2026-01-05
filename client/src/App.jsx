@@ -9,12 +9,11 @@ import Profile from './components/Profile'
 import JobDescription from './components/JobDescription'
 import Companies from './components/Admin/Companies'
 import CreateCompany from './components/Admin/CreateCompany'
-import CompanySetup from './components/Admin/CompanySetup'
-import { Suspense } from 'react'
 import AdminJobs from './components/Admin/AdminJobs'
 import PostJob from './components/Admin/PostJob'
 import Applicants from './components/Admin/Applicants'
 import Protected from './components/Admin/Protected'
+import CompanySetup from './components/Admin/CompanySetup'
 
 const appRouter = createBrowserRouter([
   {

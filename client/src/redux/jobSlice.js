@@ -30,7 +30,7 @@ const jobSlice = createSlice({
       state.searchedQuery = action.payload;
     },
     setAllAppliedJobs: (state, action) => {
-      state.allAppliedJobs = action.payload; // ✅ fixed reducer
+      state.allAppliedJobs = action.payload;
     },
   },
 });

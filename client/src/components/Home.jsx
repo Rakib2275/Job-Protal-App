@@ -8,6 +8,7 @@ import UseGetAllJobs from '@/hooks/UseGetAllJobs'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import UseComponent from './UseComponent'
+import "./home.css"
 
 
 
@@ -22,7 +23,7 @@ const Home = () => {
     }
   },[])
   return (
-    <div>
+    <div className='bg'>
       <Navbar/>
       <HeroSection />
       <CategoryCarousel />
