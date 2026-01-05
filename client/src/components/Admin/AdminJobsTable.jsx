@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import "./Companies.css";
 
 const AdminJobsTable = () => {
-  // ✅ ঠিকভাবে destructure করা
+  
   const { allJobs = [], searchedQuery } = useSelector((store) => store.job || {});
   const [filterJobs, setFilterJobs] = useState([]);
   const navigate = useNavigate();
@@ -69,13 +69,7 @@ const AdminJobsTable = () => {
                       <MoreHorizontal />
                     </PopoverTrigger>
                     <PopoverContent className="popcontent">
-                      <div
-                        onClick={() => navigate(`/admin/companies/${job._id}`)}
-                        className="edit"
-                      >
-                        <Edit2 />
-                        <span className="editbtton">Edit</span>
-                      </div>
+                      
                       <div
                         onClick={() =>
                           navigate(`/admin/jobs/${job._id}/applicants`)
